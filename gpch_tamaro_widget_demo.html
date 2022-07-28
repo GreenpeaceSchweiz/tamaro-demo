@@ -52,10 +52,11 @@
 		});
 
 		function paymentTypeChangedHandler(event) {
-			// console.log(event);
-			console.log(event.data.api.config.paymentFormPrefill.stored_Campaign);
-			event.data.api.config.paymentFormPrefill.stored_Campaign = '7017Z000001EX12QAG';
-			console.log(event.data.api.config.paymentFormPrefill.stored_Campaign);
+			// console.log(event.data.api.config.paymentFormPrefill.stored_Campaign);
+			// event.data.api.config.paymentFormPrefill.stored_Campaign = '7017Z000001EX12QAG';
+			console.log(event);
+			console.log(event.value);
+			// event.data.api.config.paymentType
 		}
 
 		window.rnw.tamaro.events.paymentTypeChanged.subscribe(paymentTypeChangedHandler)
