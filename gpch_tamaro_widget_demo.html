@@ -53,7 +53,7 @@
 
 		function paymentTypeChangedHandler(event) {
 			console.log("The paymentType was changed, let's have a look at the event, which comes with ", event);
-			console.log(event.data.api.get.paymentFormPrefill());
+			console.log(event.data.api.get.paymentFormPrefill);
 		}
 
 		window.rnw.tamaro.events.paymentTypeChanged.subscribe(paymentTypeChangedHandler)
