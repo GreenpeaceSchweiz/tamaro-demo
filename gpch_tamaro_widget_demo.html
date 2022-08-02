@@ -69,7 +69,7 @@
 		// console.log(event);
 
 		var payment_type = window.rnw.tamaro.instance.paymentForm.data.payment_type;
-		console.log(payment_type);
+		// console.log(payment_type);
 
 		if (payment_type === 'recurring') {
 			window.rnw.tamaro.instance.paymentForm.data.stored_Campaign = '';
@@ -81,12 +81,12 @@
 			window.rnw.tamaro.instance.paymentForm.data.stored_npe03__Recurring_Donation_Campaign__c = '';
 		}
 
-		console.log(window.rnw.tamaro.instance.paymentForm.data.stored_Campaign);
-		console.log(window.rnw.tamaro.instance.paymentForm.data.stored_npe03__Recurring_Donation_Campaign__c);
+		// console.log(window.rnw.tamaro.instance.paymentForm.data.stored_Campaign);
+		// console.log(window.rnw.tamaro.instance.paymentForm.data.stored_npe03__Recurring_Donation_Campaign__c);
 	}
 
-	window.rnw.tamaro.events.paymentTypeChanged.subscribe(paymentTypeHandler);
-	// window.rnw.tamaro.events.beforePaymentValidateAndSend.subscribe(paymentTypeHandler);
+	// window.rnw.tamaro.events.paymentTypeChanged.subscribe(paymentTypeHandler);
+	window.rnw.tamaro.events.beforePaymentValidateAndSend.subscribe(paymentTypeHandler);
 
 </script>
 
