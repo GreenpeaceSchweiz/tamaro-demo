@@ -35,59 +35,59 @@
 
 <body>
 
-	<div class="rnw-widget-container"></div>
+<div class="rnw-widget-container"></div>
 
-	<script src="https://tamaro.raisenow.com/greenpeace-demo/latest/widget.js"></script>
+<script src="https://tamaro.raisenow.com/greenpeace-demo/latest/widget.js"></script>
 
-	<script>
-		window.rnw.tamaro.runWidget('.rnw-widget-container', {
-			testMode: true,
-			debug: true,
-			language: 'de',
-			paymentFormPrefill: {
-				stored_Source__c: 'Internet',
-				// stored_Campaign: '',
-				// stored_npe03__Recurring_Donation_Campaign__c: '',
-				stored_campaign: [
-					{
-						"if": "paymentType() == onetime",
-						"then": "7017Z000001EX12QAG",
-						// "else": "NULL"
-					}
-				],
-				stored_npe03__Recurring_Donation_Campaign__c: [
-					{
-						"if": "paymentType() == recurring",
-						"then": "7017Z000001EX12QAG",
-						// "else": "NULL"
-					}
-				]
-			}
-		});
+<script>
+	window.rnw.tamaro.runWidget('.rnw-widget-container', {
+		testMode: true,
+		debug: true,
+		language: 'de',
+		paymentFormPrefill: {
+			stored_Source__c: 'Internet',
+			stored_Campaign: '',
+			stored_npe03__Recurring_Donation_Campaign__c: '',
+			/* stored_campaign: [
+				{
+					"if": "paymentType() == onetime",
+					"then": "7017Z000001EX12QAG",
+					// "else": "NULL"
+				}
+			],
+			stored_npe03__Recurring_Donation_Campaign__c: [
+				{
+					"if": "paymentType() == recurring",
+					"then": "7017Z000001EX12QAG",
+					// "else": "NULL"
+				}
+			] */
+		}
+	});
 
-		function paymentTypeChangedHandler(event) {
-			// console.log(event);
+	function paymentTypeHandler(event) {
+		// console.log(event);
 
-			var payment_type = window.rnw.tamaro.instance.paymentForm.data.payment_type;
+		var payment_type = window.rnw.tamaro.instance.paymentForm.data.payment_type;
 
-			if (payment_type === 'recurring')
-			{
-				event.data.api.config.paymentFormPrefill.stored_Campaign = ''
-				event.data.api.config.paymentFormPrefill.stored_npe03__Recurring_Donation_Campaign__c = '7017Z000001EX12QAG'
-			}
-
-			if (payment_type === 'onetime')
-			{
-				event.data.api.config.paymentFormPrefill.stored_Campaign = '7017Z000001EX12QAG'
-				event.data.api.config.paymentFormPrefill.stored_npe03__Recurring_Donation_Campaign__c = ''
-			}
-
-			console.log(payment_type);
-			console.log(event.data.api.config.paymentFormPrefill);
+		if (payment_type === 'recurring') {
+			event.data.api.config.paymentFormPrefill.stored_Campaign = ''
+			event.data.api.config.paymentFormPrefill.stored_npe03__Recurring_Donation_Campaign__c = '7017Z000001EX12QAG'
 		}
 
-		// window.rnw.tamaro.events.paymentTypeChanged.subscribe(paymentTypeChangedHandler);
-	</script>
+		if (payment_type === 'onetime') {
+			event.data.api.config.paymentFormPrefill.stored_Campaign = '7017Z000001EX12QAG'
+			event.data.api.config.paymentFormPrefill.stored_npe03__Recurring_Donation_Campaign__c = ''
+		}
+
+		console.log(payment_type);
+		console.log(event.data.api.config.paymentFormPrefill);
+	}
+
+	// window.rnw.tamaro.events.paymentTypeChanged.subscribe(paymentTypeChangedHandler);
+	window.rnw.tamaro.events.beforePaymentValidateAndSend.subscribe(paymentTypeHandler);
+
+</script>
 
 </body>
 </html>
