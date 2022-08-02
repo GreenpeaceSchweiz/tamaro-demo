@@ -46,9 +46,9 @@
 		language: 'de',
 		paymentFormPrefill: {
 			stored_Source__c: 'Internet',
-			// stored_Campaign: '',
-			// stored_npe03__Recurring_Donation_Campaign__c: '',
-			/* stored_campaign: [
+			stored_Campaign: '',
+			stored_npe03__Recurring_Donation_Campaign__c: '',
+			/* stored_Campaign: [
 				{
 					"if": "paymentType() == onetime",
 					"then": "7017Z000001EX12QAG",
@@ -84,7 +84,7 @@
 		console.log(event.data.api.config.paymentFormPrefill);
 	}
 
-	// window.rnw.tamaro.events.paymentTypeChanged.subscribe(paymentTypeChangedHandler);
+	window.rnw.tamaro.events.paymentTypeChanged.subscribe(paymentTypeHandler);
 	window.rnw.tamaro.events.beforePaymentValidateAndSend.subscribe(paymentTypeHandler);
 
 </script>
