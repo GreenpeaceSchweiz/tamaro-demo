@@ -46,8 +46,8 @@
 		language: 'de',
 		paymentFormPrefill: {
 			stored_Source__c: 'Internet',
-			stored_Campaign: '',
-			stored_npe03__Recurring_Donation_Campaign__c: '',
+			stored_Campaign: 'a',
+			stored_npe03__Recurring_Donation_Campaign__c: 'a',
 			/* stored_Campaign: [
 				{
 					"if": "paymentType() == onetime",
@@ -71,13 +71,13 @@
 		var payment_type = window.rnw.tamaro.instance.paymentForm.data.payment_type;
 
 		if (payment_type === 'recurring') {
-			window.rnw.tamaro.config.paymentFormPrefill.stored_Campaign = ''
-			window.rnw.tamaro.config.paymentFormPrefill.stored_npe03__Recurring_Donation_Campaign__c = '7017Z000001EX12QAG'
+			window.rnw.tamaro.instance.config.paymentFormPrefill.stored_Campaign = ''
+			window.rnw.tamaro.instance.config.paymentFormPrefill.stored_npe03__Recurring_Donation_Campaign__c = '7017Z000001EX12QAG'
 		}
 
 		if (payment_type === 'onetime') {
-			window.rnw.tamaro.config.paymentFormPrefill.stored_Campaign = '7017Z000001EX12QAG'
-			window.rnw.tamaro.config.paymentFormPrefill.stored_npe03__Recurring_Donation_Campaign__c = ''
+			window.rnw.tamaro.instance.config.paymentFormPrefill.stored_Campaign = '7017Z000001EX12QAG'
+			window.rnw.tamaro.instance.config.paymentFormPrefill.stored_npe03__Recurring_Donation_Campaign__c = ''
 		}
 
 		console.log(payment_type);
