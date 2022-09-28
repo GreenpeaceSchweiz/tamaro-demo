@@ -44,49 +44,29 @@
 		testMode: true,
 		debug: true,
 		language: 'de',
+		purposeDetails: {
+			p1: {
+				stored_campaign_id: '7013O000000hqhwQAA'
+			}
+		},
 		paymentFormPrefill: {
-			stored_sf_Contact_Source__c: 'Internet',
-			stored_campaign_id: '7013O000000hqhwQAA'
-			// stored_campaign_id: '',
-			// stored_sf_npe03__Recurring_Donation_Campaign__c: '',
-			/* stored_Campaign: [
-				{
-					"if": "paymentType() == onetime",
-					"then": "7017Z000001EfX12QAG",
-					// "else": "NULL"
-				}
-			],
-			stored_npe03__Recurring_Donation_Campaign__c: [
-				{
-					"if": "paymentType() == recurring",
-					"then": "7017Z000001EX12QAG",
-					// "else": "NULL"
-				}
-			] */
+			stored_sf_Contact_Source__c: 'Internet'
 		}
 	});
 
 	function paymentTypeHandler(event) {
-		// console.log(event);
 
 		var payment_type = window.rnw.tamaro.instance.paymentForm.data.payment_type;
-		// console.log(payment_type);
 
 		if (payment_type === 'recurring') {
-			window.rnw.tamaro.instance.paymentForm.data.stored_campaign_id = '7013O000000hpuBQAQ';
-			// window.rnw.tamaro.instance.paymentForm.data.stored_sf_npe03__Recurring_Donation_Campaign__c = '7013O000000hpuBQAQ';
+			window.rnw.tamaro.instance.paymentForm.data.stored_campaign_id = 'recurring';
 		}
 
 		if (payment_type === 'onetime') {
-			window.rnw.tamaro.instance.paymentForm.data.stored_campaign_id = '7013O000000hpuAQAQ';
-			// window.rnw.tamaro.instance.paymentForm.data.stored_sf_npe03__Recurring_Donation_Campaign__c = '';
+			window.rnw.tamaro.instance.paymentForm.data.stored_campaign_id = 'onetime';
 		}
-
-		// console.log(window.rnw.tamaro.instance.paymentForm.data.stored_Campaign);
-		// console.log(window.rnw.tamaro.instance.paymentForm.data.stored_npe03__Recurring_Donation_Campaign__c);
 	}
 
-	// window.rnw.tamaro.events.paymentTypeChanged.subscribe(paymentTypeHandler);
 	// window.rnw.tamaro.events.beforePaymentValidateAndSend.subscribe(paymentTypeHandler);
 
 </script>
