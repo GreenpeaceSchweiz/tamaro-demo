@@ -51,8 +51,18 @@
 			}
 		},
 		paymentFormPrefill: {
-			stored_sf_Contact_Source__c: 'Internet'
-		}
+			stored_sf_Contact_Source__c: 'Internet',
+			stored_sf_Product__c: ''
+		},
+		slots: {
+			profile_form_1: [{
+				component: "field",
+				type: "text",
+				name: "stored_sf_Product__c",
+				label: "Salesforce Product",
+				placeholder: "Salesforce Product (e.g. Sponsorship Fleet)"
+			}]
+		},
 	});
 
 	function paymentTypeHandler(event) {
