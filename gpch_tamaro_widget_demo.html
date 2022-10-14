@@ -106,14 +106,50 @@
 				stored_campaign_id: '7013O000000hqhwQAA'
 			},
 			p6: {
-				stored_sf_Product__c: 'Sponsorship Global',
-				stored_campaign_id: '7013O000000hqhwQAA'
-			},
-			p7: {
 				stored_sf_Product__c: 'Sponsorship Ocean',
 				stored_campaign_id: '7013O000000hqhwQAA'
 			},
 		},
+		amounts: [
+			{
+				"if": "paymentType() == onetime",
+				"then": [39,84,150,250]
+			},
+			{
+				"if": "paymentType() == recurring && recurringInterval() == monthly",
+				"then": [7,10,20,50]
+			},
+			{
+				"if": "paymentType() == recurring && recurringInterval() == quarterly",
+				"then": [21,30,60,150]
+			},
+			{
+				"if": "paymentType() == recurring && recurringInterval() == semestral",
+				"then": [42,60,120,300]
+			},
+			{
+				"if": "paymentType() == recurring && recurringInterval() == yearly",
+				"then": [84,120,240,600]
+			}
+		],
+		minimumCustomAmount: [
+			{
+				"if": "paymentType() == recurring && recurringInterval() == monthly",
+				"then": 2
+			},
+			{
+				"if": "paymentType() == recurring && recurringInterval() == quarterly",
+				"then": 6
+			},
+			{
+				"if": "paymentType() == recurring && recurringInterval() == semestral",
+				"then": 12
+			},
+			{
+				"if": "paymentType() == recurring && recurringInterval() == yearly",
+				"then": 24
+			}
+		],
 		paymentFormPrefill: {
 			stored_customer_email_permission: true,
 			stored_customer_donation_receipt: true,
