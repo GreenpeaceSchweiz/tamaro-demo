@@ -29,6 +29,10 @@
 			margin: -2rem;
 		}
 
+		.stored_sf_Product__c {
+			margin-bottom: 24px;
+		}
+
 	</style>
 
 </head>
@@ -74,11 +78,11 @@
 				label: "payment_form.stored_sf_Product__c",
 				options: [
 					{value: 'Standard Donation', label: 'payment_form.products.standard_donation'},
-					{value: 'Sponsorship Agriculture', label: 'payment_form.stored_sf_Product__c.sponsorship_agriculture'},
-					{value: 'Sponsorship Climate', label: 'payment_form.stored_sf_Product__c.sponsorship_climate'},
-					{value: 'Sponsorship Fleet', label: 'payment_form.stored_sf_Product__c.sponsorship_fleet'},
-					{value: 'Sponsorship Forest', label: 'payment_form.stored_sf_Product__c.sponsorship_forest'},
-					{value: 'Sponsorship Ocean', label: 'payment_form.stored_sf_Product__c.sponsorship_ocean'}
+					{value: 'Sponsorship Agriculture', label: 'payment_form.products.sponsorship_agriculture'},
+					{value: 'Sponsorship Climate', label: 'payment_form.products.sponsorship_climate'},
+					{value: 'Sponsorship Fleet', label: 'payment_form.products.sponsorship_fleet'},
+					{value: 'Sponsorship Forest', label: 'payment_form.products.sponsorship_forest'},
+					{value: 'Sponsorship Ocean', label: 'payment_form.products.sponsorship_ocean'}
 				],
 			}
 		]},
@@ -88,7 +92,15 @@
 					p1: 'Donation'
 				},
 				payment_form: {
-					stored_sf_Product__c: 'Salesforce Product'
+					stored_sf_Product__c: 'Salesforce Product',
+					products: {
+						standard_donation: 'Standard Donation',
+						sponsorship_agriculture: 'Sponsorship Agriculture',
+						sponsorship_climate: 'Sponsorship Climate',
+						sponsorship_fleet: 'Sponsorship Fleet',
+						sponsorship_forest: 'Sponsorship Forest',
+						sponsorship_ocean: 'Sponsorship Ocean'
+					}
 				},
 				blocks: {
 					payment_profile: {
@@ -103,7 +115,12 @@
 				payment_form: {
 					stored_sf_Product__c: 'Salesforce Produkt',
 					products: {
-						standard_donation: 'Standard Spende'
+						standard_donation: 'Standard Spende',
+						sponsorship_agriculture: 'Patenschaft Landwirtschaft',
+						sponsorship_climate: 'Patenschaft Klima',
+						sponsorship_fleet: 'Patenschaft Flotte',
+						sponsorship_forest: 'Patenschaft Urwälder',
+						sponsorship_ocean: 'Patenschaft Meer'
 					}
 				},
 				blocks: {
