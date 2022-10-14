@@ -67,13 +67,13 @@
 			}
 		},
 		slots: {
-			purposes_end: [{
+			purposes_start: [{
 				component: "field",
 				type: "select",
 				name: "stored_sf_Product__c",
 				label: "payment_form.stored_sf_Product__c",
 				options: [
-					{value: 'Standard Donation', label: 'payment_form.stored_sf_Product__c.standard_donation'},
+					{value: 'Standard Donation', label: 'payment_form.products.standard_donation'},
 					{value: 'Sponsorship Agriculture', label: 'payment_form.stored_sf_Product__c.sponsorship_agriculture'},
 					{value: 'Sponsorship Climate', label: 'payment_form.stored_sf_Product__c.sponsorship_climate'},
 					{value: 'Sponsorship Fleet', label: 'payment_form.stored_sf_Product__c.sponsorship_fleet'},
@@ -102,7 +102,9 @@
 				},
 				payment_form: {
 					stored_sf_Product__c: 'Salesforce Produkt',
-					standard_donation: 'Standard Spende'
+					products: {
+						standard_donation: 'Standard Spende'
+					}
 				},
 				blocks: {
 					payment_profile: {
