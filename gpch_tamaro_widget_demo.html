@@ -43,6 +43,7 @@
 	window.rnw.tamaro.runWidget('.rnw-widget-container', {
 		testMode: true,
 		debug: true,
+		debugSlots: true,
 		language: 'de',
 		showStoredCustomerDonationReceipt: false,
 		purposeDetails: {
@@ -59,10 +60,13 @@
 				component: "field",
 				type: "text",
 				name: "stored_sf_Product__c",
-				label: "Salesforce Product",
-				placeholder: "Salesforce Product (e.g. Sponsorship Fleet)"
+				label: "payment_form.stored_sf_Product__c", // Salesforce Product
+				placeholder: "payment_form.stored_sf_Product__c" // Salesforce Product (e.g. Sponsorship Fleet)
 			}]
 		},
+		translations: {
+			de: {}
+		}
 	});
 
 	function paymentTypeHandler(event) {
