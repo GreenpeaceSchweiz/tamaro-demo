@@ -66,17 +66,39 @@
 				stored_campaign_id: '7013O000000hqhwQAA'
 			}
 		},
-		// workaround
 		slots: {
-			profile_form_7: [{
+			purposes_end: [{
 				component: "field",
-				type: "text",
+				type: "select",
 				name: "stored_sf_Product__c",
 				label: "payment_form.stored_sf_Product__c",
-				placeholder: "payment_form.placeholders.stored_sf_Product__c"
-			}]
-		},
+				options: [
+					{value: 'Standard Donation', label: 'payment_form.stored_sf_Product__c.1'},
+					{value: 'Sponsorship Agriculture', label: 'payment_form.stored_sf_Product__c.2'},
+					{value: 'Sponsorship Climate', label: 'payment_form.stored_sf_Product__c.3'},
+					{value: 'Sponsorship Fleet', label: 'payment_form.stored_sf_Product__c.4'},
+					{value: 'Sponsorship Forest', label: 'payment_form.stored_sf_Product__c.5'},
+					{value: 'Sponsorship Ocean', label: 'payment_form.stored_sf_Product__c.6'}
+				],
+			}
+		]},
 		translations: {
+			en: {
+				purposes: {
+					p1: 'Donation'
+				},
+				payment_form: {
+					placeholders: {
+						stored_sf_Product__c: 'e.g. Sponsorship Fleet'
+					},
+					stored_sf_Product__c: 'Salesforce Product'
+				},
+				blocks: {
+					payment_profile: {
+						email_permission_info_html: "<p>I would like Greenpeace Switzerland to inform me by e-mail about ongoing projects.</p>\n"
+					}
+				}
+			},
 			de: {
 				purposes: {
 					p1: 'Spende'
