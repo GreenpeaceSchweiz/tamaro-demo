@@ -73,12 +73,12 @@
 				name: "stored_sf_Product__c",
 				label: "payment_form.stored_sf_Product__c",
 				options: [
-					{value: 'Standard Donation', label: 'payment_form.stored_sf_Product__c.1'},
-					{value: 'Sponsorship Agriculture', label: 'payment_form.stored_sf_Product__c.2'},
-					{value: 'Sponsorship Climate', label: 'payment_form.stored_sf_Product__c.3'},
-					{value: 'Sponsorship Fleet', label: 'payment_form.stored_sf_Product__c.4'},
-					{value: 'Sponsorship Forest', label: 'payment_form.stored_sf_Product__c.5'},
-					{value: 'Sponsorship Ocean', label: 'payment_form.stored_sf_Product__c.6'}
+					{value: 'Standard Donation', label: 'payment_form.stored_sf_Product__c.standard_donation'},
+					{value: 'Sponsorship Agriculture', label: 'payment_form.stored_sf_Product__c.sponsorship_agriculture'},
+					{value: 'Sponsorship Climate', label: 'payment_form.stored_sf_Product__c.sponsorship_climate'},
+					{value: 'Sponsorship Fleet', label: 'payment_form.stored_sf_Product__c.sponsorship_fleet'},
+					{value: 'Sponsorship Forest', label: 'payment_form.stored_sf_Product__c.sponsorship_forest'},
+					{value: 'Sponsorship Ocean', label: 'payment_form.stored_sf_Product__c.sponsorship_ocean'}
 				],
 			}
 		]},
@@ -88,9 +88,6 @@
 					p1: 'Donation'
 				},
 				payment_form: {
-					placeholders: {
-						stored_sf_Product__c: 'e.g. Sponsorship Fleet'
-					},
 					stored_sf_Product__c: 'Salesforce Product'
 				},
 				blocks: {
@@ -104,10 +101,10 @@
 					p1: 'Spende'
 				},
 				payment_form: {
-					placeholders: {
-						stored_sf_Product__c: 'z.B. Sponsorship Fleet'
+					stored_sf_Product__c: {
+						standard_donation: 'Standard Spende'
 					},
-					stored_sf_Product__c: 'Salesforce Product'
+					stored_sf_Product__c: 'Salesforce Produkt'
 				},
 				blocks: {
 					payment_profile: {
