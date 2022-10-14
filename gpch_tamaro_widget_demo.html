@@ -40,50 +40,84 @@
 <script src="https://tamaro.raisenow.com/greenpeace-demo/latest/widget.js"></script>
 
 <script>
+	// Sponsorship Agriculture
+	// Sponsorship Climate
+	// Sponsorship Fleet
+	// Sponsorship Forest
+	// Sponsorship Global
+	// Sponsorship Ocean
+
 	window.rnw.tamaro.runWidget('.rnw-widget-container', {
-		testMode: true,
 		debug: true,
-		debugSlots: false,
+		testMode: true,
 		language: 'de',
 		showStoredCustomerEmailPermission: true,
 		showStoredCustomerDonationReceipt: true,
 		paymentWidgetBlocks: [
-			"payment_purposes",
-			"payment_amounts_and_intervals",
-			"payment_payment_methods",
-			"payment_profile",
-			"payment_address",
-			"payment_cover_fee"
+			'payment_purposes',
+			'payment_amounts_and_intervals',
+			'payment_payment_methods',
+			'payment_profile',
+			'payment_address',
+			'payment_cover_fee'
 		],
+		purposes: ['p1', 'p2', 'p3', 'p4', 'p5', 'p6'],
+		translations: {
+			en: {
+				purposes: {
+					p1: 'Standard Donation',
+					p2: 'Sponsorship Agriculture',
+					p3: 'Sponsorship Climate',
+					p4: 'Sponsorship Fleet',
+					p5: 'Sponsorship Forest',
+					p6: 'Sponsorship Ocean'
+				}
+			},
+			de: {
+				purposes: {
+					p1: 'Spende',
+					p2: 'Patenschaft Landwirtschaft',
+					p3: 'Patenschaft Klima',
+					p4: 'Patenschaft Flotte',
+					p5: 'Patenschaft Urwälder',
+					p6: 'Patenschaft Meer'
+				}
+			}
+		},
 		purposeDetails: {
 			p1: {
+				stored_sf_Product__c: 'Standard Donation',
 				stored_campaign_id: '7013O000000hqhwQAA'
-			}
+			},
+			p2: {
+				stored_sf_Product__c: 'Sponsorship Agriculture',
+				stored_campaign_id: '7013O000000hqhwQAA'
+			},
+			p3: {
+				stored_sf_Product__c: 'Sponsorship Climate',
+				stored_campaign_id: '7013O000000hqhwQAA'
+			},
+			p4: {
+				stored_sf_Product__c: 'Sponsorship Fleet',
+				stored_campaign_id: '7013O000000hqhwQAA'
+			},
+			p5: {
+				stored_sf_Product__c: 'Sponsorship Forest',
+				stored_campaign_id: '7013O000000hqhwQAA'
+			},
+			p6: {
+				stored_sf_Product__c: 'Sponsorship Global',
+				stored_campaign_id: '7013O000000hqhwQAA'
+			},
+			p7: {
+				stored_sf_Product__c: 'Sponsorship Ocean',
+				stored_campaign_id: '7013O000000hqhwQAA'
+			},
 		},
 		paymentFormPrefill: {
 			stored_customer_email_permission: true,
 			stored_customer_donation_receipt: true,
-			stored_sf_Contact_Source__c: 'Internet',
-			stored_sf_Product__c: null
-		},
-		slots: {
-			profile_form_7: [{
-				component: "field",
-				type: "text",
-				name: "stored_sf_Product__c",
-				label: "payment_form.stored_sf_Product__c",
-				placeholder: "payment_form.placeholders.stored_sf_Product__c"
-			}]
-		},
-		translations: {
-			de: {
-				payment_form: {
-					placeholders: {
-						stored_sf_Product__c: 'z.B. Sponsorship Fleet'
-					},
-					stored_sf_Product__c: 'Salesforce Product'
-				}
-			}
+			stored_sf_Contact_Source__c: 'Internet'
 		}
 	});
 
