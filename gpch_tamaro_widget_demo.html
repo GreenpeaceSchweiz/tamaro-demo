@@ -52,6 +52,15 @@
 			stored_sf_Contact_Source__c: 'Internet',
 			stored_sf_Product__c: null
 		},
+		paymentWidgetBlocks: [
+			'payment_purposes',
+			'payment_amounts_and_intervals',
+			'payment_payment_methods',
+			'payment_profile',
+			'payment_address',
+			'payment_cover_fee'
+		],
+		purposes: ['p1'],
 		purposeDetails: {
 			p1: {
 				stored_campaign_id: '7013O000000hqhwQAA'
@@ -69,6 +78,9 @@
 		},
 		translations: {
 			de: {
+				purposes: {
+					p1: 'Spende'
+				},
 				payment_form: {
 					placeholders: {
 						stored_sf_Product__c: 'z.B. Sponsorship Fleet'
