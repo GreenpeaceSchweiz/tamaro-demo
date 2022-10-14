@@ -45,8 +45,16 @@
 		debug: true,
 		debugSlots: false,
 		language: 'de',
-		showStoredCustomerEmailPermission: false,
-		showStoredCustomerDonationReceipt: false,
+		showStoredCustomerEmailPermission: true,
+		showStoredCustomerDonationReceipt: true,
+		paymentWidgetBlocks: [
+			"payment_purposes",
+			"payment_amounts_and_intervals",
+			"payment_payment_methods",
+			"payment_profile",
+			"payment_address",
+			"payment_cover_fee"
+		],
 		purposeDetails: {
 			p1: {
 				stored_campaign_id: '7013O000000hqhwQAA'
@@ -54,6 +62,7 @@
 		},
 		paymentFormPrefill: {
 			stored_customer_email_permission: true,
+			stored_customer_donation_receipt: true,
 			stored_sf_Contact_Source__c: 'Internet',
 			stored_sf_Product__c: null
 		},
