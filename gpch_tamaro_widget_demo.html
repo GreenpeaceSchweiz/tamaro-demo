@@ -29,7 +29,7 @@
 			margin: -2rem;
 		}
 
-		#tamaro-widget.tamaro-widget .stored_sf_Product__c {
+		#tamaro-widget.tamaro-widget .stored_sf_Opportunity_Product__c {
 			margin-bottom: 24px;
 		}
 
@@ -54,7 +54,7 @@
 			stored_customer_email_permission: true,
 			stored_customer_donation_receipt: true,
 			stored_sf_Contact_Source__c: 'Internet',
-			stored_sf_Product__c: 'Standard Donation'
+			stored_sf_Opportunity_Product__c: 'Standard Donation'
 		},
 		paymentWidgetBlocks: [
 			'payment_purposes',
@@ -74,8 +74,8 @@
 			purposes_start: [{
 				component: "field",
 				type: "select",
-				name: "stored_sf_Product__c",
-				label: "payment_form.stored_sf_Product__c",
+				name: "stored_sf_Opportunity_Product__c",
+				label: "payment_form.stored_sf_Opportunity_Product__c",
 				options: [
 					{value: 'Standard Donation', label: 'payment_form.products.standard_donation'},
 					{value: 'Sponsorship Agriculture', label: 'payment_form.products.sponsorship_agriculture'},
@@ -92,7 +92,7 @@
 					p1: 'Greenpeace Switzerland'
 				},
 				payment_form: {
-					stored_sf_Product__c: 'Salesforce Product',
+					stored_sf_Opportunity_Product__c: 'Salesforce Product',
 					products: {
 						standard_donation: 'Standard Donation',
 						sponsorship_agriculture: 'Sponsorship Agriculture',
@@ -113,7 +113,7 @@
 					p1: 'Greenpeace Schweiz'
 				},
 				payment_form: {
-					stored_sf_Product__c: 'Salesforce Produkt',
+					stored_sf_Opportunity_Product__c: 'Salesforce Produkt',
 					products: {
 						standard_donation: 'Standard Spende',
 						sponsorship_agriculture: 'Patenschaft Landwirtschaft',
