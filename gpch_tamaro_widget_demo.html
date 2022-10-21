@@ -29,7 +29,7 @@
 			margin: -2rem;
 		}
 
-		#tamaro-widget.tamaro-widget .stored_sf_Opportunity_Product__c {
+		#tamaro-widget.tamaro-widget .gpch_product {
 			margin-bottom: 24px;
 		}
 
@@ -54,7 +54,9 @@
 			stored_customer_email_permission: true,
 			stored_customer_donation_receipt: true,
 			stored_sf_Contact_Source__c: 'Internet',
-			stored_sf_Opportunity_Product__c: 'Standard Donation'
+			gpch_product: 'Standard Donation',
+			stored_sf_Opportunity_Product__c: '',
+			stored_sf_npe03__Recurring_Donation__c_Product__c: ''
 		},
 		paymentWidgetBlocks: [
 			'payment_purposes',
@@ -74,15 +76,15 @@
 			purposes_start: [{
 				component: "field",
 				type: "select",
-				name: "stored_sf_Opportunity_Product__c",
-				label: "payment_form.stored_sf_Opportunity_Product__c",
+				name: "gpch_product",
+				label: "payment_form.gpch_product",
 				options: [
-					{value: 'Standard Donation', label: 'payment_form.products.standard_donation'},
-					{value: 'Sponsorship Agriculture', label: 'payment_form.products.sponsorship_agriculture'},
-					{value: 'Sponsorship Climate', label: 'payment_form.products.sponsorship_climate'},
-					{value: 'Sponsorship Fleet', label: 'payment_form.products.sponsorship_fleet'},
-					{value: 'Sponsorship Forest', label: 'payment_form.products.sponsorship_forest'},
-					{value: 'Sponsorship Ocean', label: 'payment_form.products.sponsorship_ocean'}
+					{value: 'Standard Donation', label: 'payment_form.gpch_products.standard_donation'},
+					{value: 'Sponsorship Agriculture', label: 'payment_form.gpch_products.sponsorship_agriculture'},
+					{value: 'Sponsorship Climate', label: 'payment_form.gpch_products.sponsorship_climate'},
+					{value: 'Sponsorship Fleet', label: 'payment_form.gpch_products.sponsorship_fleet'},
+					{value: 'Sponsorship Forest', label: 'payment_form.gpch_products.sponsorship_forest'},
+					{value: 'Sponsorship Ocean', label: 'payment_form.gpch_products.sponsorship_ocean'}
 				],
 			}
 		]},
@@ -92,8 +94,8 @@
 					p1: 'Greenpeace Switzerland'
 				},
 				payment_form: {
-					stored_sf_Opportunity_Product__c: 'Salesforce Product',
-					products: {
+					gpch_product: 'Salesforce Product',
+					gpch_products: {
 						standard_donation: 'Standard Donation',
 						sponsorship_agriculture: 'Sponsorship Agriculture',
 						sponsorship_climate: 'Sponsorship Climate',
@@ -113,8 +115,8 @@
 					p1: 'Greenpeace Schweiz'
 				},
 				payment_form: {
-					stored_sf_Opportunity_Product__c: 'Salesforce Produkt',
-					products: {
+					gpch_product: 'Salesforce Produkt',
+					gpch_products: {
 						standard_donation: 'Standard Spende',
 						sponsorship_agriculture: 'Patenschaft Landwirtschaft',
 						sponsorship_climate: 'Patenschaft Klima',
@@ -172,20 +174,21 @@
 		]
 	});
 
-	function beforePaymentValidateAndSendHandler(event) {
+	function bePaVaAnSeHandler(event) {
 
 		var payment_type = window.rnw.tamaro.instance.paymentForm.data.payment_type;
 
 		if (payment_type === 'recurring') {
-			window.rnw.tamaro.instance.paymentForm.data.stored_campaign_id = 'recurring';
+			window.rnw.tamaro.instance.paymentForm.data.stored_sf_Opportunity_Product__c = window.rnw.tamaro.instance.paymentForm.data.gpch_product;
 		}
 
 		if (payment_type === 'onetime') {
-			window.rnw.tamaro.instance.paymentForm.data.stored_campaign_id = 'onetime';
+			window.rnw.tamaro.instance.paymentForm.data.stored_sf_npe03__Recurring_Donation__c_Product__c = window.rnw.tamaro.instance.paymentForm.data.gpch_product;
 		}
 	}
 
-	// window.rnw.tamaro.events.beforePaymentValidateAndSend.subscribe(beforePaymentValidateAndSendHandler);
+	// beforePaymentValidateAndSend = bePaVaAnSe
+	window.rnw.tamaro.events.beforePaymentValidateAndSend.subscribe(bePaVaAnSeHandler);
 
 </script>
 
