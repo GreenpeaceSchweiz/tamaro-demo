@@ -180,10 +180,12 @@
 
 		if (payment_type === 'onetime') {
 			window.rnw.tamaro.instance.paymentForm.data.stored_sf_Opportunity_Product__c = window.rnw.tamaro.instance.paymentForm.data.gpch_product;
+			window.rnw.tamaro.instance.paymentForm.data.stored_sf_npe03__Recurring_Donation__c_Product__c = '';
 		}
 
 		if (payment_type === 'recurring') {
 			window.rnw.tamaro.instance.paymentForm.data.stored_sf_npe03__Recurring_Donation__c_Product__c = window.rnw.tamaro.instance.paymentForm.data.gpch_product;
+			window.rnw.tamaro.instance.paymentForm.data.stored_sf_Opportunity_Product__c = '';
 		}
 	}
 
