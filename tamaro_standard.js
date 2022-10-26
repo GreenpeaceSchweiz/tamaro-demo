@@ -14,52 +14,17 @@ window.rnw.tamaro.runWidget('.rnw-widget-container', {
 		stored_sf_Opportunity_Product__c: '',
 		stored_sf_npe03__Recurring_Donation__c_Product__c: ''
 	},
-	paymentWidgetBlocks: [
-		// 'payment_purposes',
-		'payment_amounts_and_intervals',
-		'payment_payment_methods',
-		'payment_profile',
-		'payment_address',
-		'payment_cover_fee'
-	],
 	purposes: ['p1'],
 	purposeDetails: {
 		p1: {
 			stored_campaign_id: '7013O000000hqhwQAA'
 		}
 	},
-	/* slots: {
-		purposes_start: [{
-			component: "field",
-			type: "select",
-			name: "gpch_product",
-			label: "payment_form.gpch_product",
-			options: [
-				{value: 'Standard Donation', label: 'payment_form.gpch_products.standard_donation'},
-				{value: 'Sponsorship Agriculture', label: 'payment_form.gpch_products.sponsorship_agriculture'},
-				{value: 'Sponsorship Climate', label: 'payment_form.gpch_products.sponsorship_climate'},
-				{value: 'Sponsorship Fleet', label: 'payment_form.gpch_products.sponsorship_fleet'},
-				{value: 'Sponsorship Forest', label: 'payment_form.gpch_products.sponsorship_forest'},
-				{value: 'Sponsorship Ocean', label: 'payment_form.gpch_products.sponsorship_ocean'}
-			],
-		}
-		]}, */
 	translations: {
 		en: {
 			purposes: {
 				p1: 'Greenpeace Switzerland'
 			},
-			/* payment_form: {
-				gpch_product: 'Salesforce Product',
-				gpch_products: {
-					standard_donation: 'Standard Donation',
-					sponsorship_agriculture: 'Sponsorship Agriculture',
-					sponsorship_climate: 'Sponsorship Climate',
-					sponsorship_fleet: 'Sponsorship Fleet',
-					sponsorship_forest: 'Sponsorship Forest',
-					sponsorship_ocean: 'Sponsorship Ocean'
-				}
-			}, */
 			blocks: {
 				payment_profile: {
 					email_permission_info_html: "<p>I would like Greenpeace Switzerland to inform me by e-mail about ongoing projects.</p>\n"
@@ -70,17 +35,6 @@ window.rnw.tamaro.runWidget('.rnw-widget-container', {
 			purposes: {
 				p1: 'Greenpeace Schweiz'
 			},
-			/* payment_form: {
-				gpch_product: 'Salesforce Produkt',
-				gpch_products: {
-					standard_donation: 'Standard Spende',
-					sponsorship_agriculture: 'Patenschaft Landwirtschaft',
-					sponsorship_climate: 'Patenschaft Klima',
-					sponsorship_fleet: 'Patenschaft Flotte',
-					sponsorship_forest: 'Patenschaft Urwälder',
-					sponsorship_ocean: 'Patenschaft Meer'
-				}
-			}, */
 			blocks: {
 				payment_profile: {
 					email_permission_info_html: "<p>Ich möchte, dass Greenpeace Schweiz mich per E-Mail über laufende Projekte informiert.</p>\n"
