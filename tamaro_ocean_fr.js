@@ -4,6 +4,8 @@ window.rnw.tamaro.runWidget('.rnw-widget-container', {
 	debug: false,
 	testMode: false,
 	language: 'fr',
+	defaultPaymentType: 'recurring',
+	defaultRecurringInterval: 'yearly',
 	showStoredCustomerEmailPermission: true,
 	showStoredCustomerDonationReceipt: false,
 	paymentFormPrefill: {
