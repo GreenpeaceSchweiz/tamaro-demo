@@ -2,8 +2,8 @@
 
 window.rnw.tamaro.runWidget('.rnw-widget-container', {
 	debug: false,
-	testMode: true,
-	language: 'de',
+	testMode: false,
+	language: 'it',
 	showStoredCustomerEmailPermission: true,
 	showStoredCustomerDonationReceipt: false,
 	paymentFormPrefill: {
@@ -17,7 +17,7 @@ window.rnw.tamaro.runWidget('.rnw-widget-container', {
 	purposes: ['p1'],
 	purposeDetails: {
 		p1: {
-			stored_campaign_id: '7013O000000hqhwQAA'
+			stored_campaign_id: 'RaiseNow'
 		}
 	},
 	translations: {
@@ -32,6 +32,26 @@ window.rnw.tamaro.runWidget('.rnw-widget-container', {
 			}
 		},
 		de: {
+			purposes: {
+				p1: 'Greenpeace Schweiz'
+			},
+			blocks: {
+				payment_profile: {
+					email_permission_info_html: "<p>Ich möchte, dass Greenpeace Schweiz mich per E-Mail über laufende Projekte informiert.</p>\n"
+				}
+			}
+		},
+		fr: {
+			purposes: {
+				p1: 'Greenpeace Schweiz'
+			},
+			blocks: {
+				payment_profile: {
+					email_permission_info_html: "<p>Ich möchte, dass Greenpeace Schweiz mich per E-Mail über laufende Projekte informiert.</p>\n"
+				}
+			}
+		},
+		it: {
 			purposes: {
 				p1: 'Greenpeace Schweiz'
 			},
