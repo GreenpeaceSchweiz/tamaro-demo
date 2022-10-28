@@ -43,21 +43,21 @@ window.rnw.tamaro.runWidget('.rnw-widget-container', {
 		},
 		fr: {
 			purposes: {
-				p1: 'Greenpeace Schweiz'
+				p1: 'Greenpeace Suisse'
 			},
 			blocks: {
 				payment_profile: {
-					email_permission_info_html: "<p>Ich möchte, dass Greenpeace Schweiz mich per E-Mail über laufende Projekte informiert.</p>\n"
+					email_permission_info_html: "<p>Je veux que Greenpeace Suisse m'informe par e-mail des projets en cours.</p>\n"
 				}
 			}
 		},
 		it: {
 			purposes: {
-				p1: 'Greenpeace Schweiz'
+				p1: 'Greenpeace Svizzera'
 			},
 			blocks: {
 				payment_profile: {
-					email_permission_info_html: "<p>Ich möchte, dass Greenpeace Schweiz mich per E-Mail über laufende Projekte informiert.</p>\n"
+					email_permission_info_html: "<p>Desidero che Greenpeace Svizzera mi informi via e-mail sui progetti in corso.</p>\n"
 				}
 			}
 		}
