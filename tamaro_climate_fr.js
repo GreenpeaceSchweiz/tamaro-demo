@@ -1,4 +1,4 @@
-// RaiseNow Tamaro Widget for GPCH - Sponsorship Fleet
+// RaiseNow Tamaro Widget for GPCH - Sponsorship Climate
 
 window.rnw.tamaro.runWidget('.rnw-widget-container', {
 	debug: false,
@@ -10,7 +10,7 @@ window.rnw.tamaro.runWidget('.rnw-widget-container', {
 		stored_customer_email_permission: true,
 		stored_customer_donation_receipt: true,
 		stored_sf_Contact_Source__c: 'Internet',
-		gpch_product: 'Sponsorship Fleet',
+		gpch_product: 'Sponsorship Climate',
 		stored_sf_Opportunity_Product__c: '',
 		stored_sf_npe03__Recurring_Donation__c_Product__c: ''
 	},
@@ -65,45 +65,45 @@ window.rnw.tamaro.runWidget('.rnw-widget-container', {
 	amounts: [
 		{
 			"if": "paymentType() == onetime",
-			"then": [360,450,600]
+			"then": [234,280,400]
 		},
 		{
 			"if": "paymentType() == recurring && recurringInterval() == monthly",
-			"then": [30,50,70]
+			"then": [20,40,60]
 		},
 		{
 			"if": "paymentType() == recurring && recurringInterval() == quarterly",
-			"then": [90,150,210]
+			"then": [60,120,180]
 		},
 		{
 			"if": "paymentType() == recurring && recurringInterval() == semestral",
-			"then": [180,300,420]
+			"then": [120,240,360]
 		},
 		{
 			"if": "paymentType() == recurring && recurringInterval() == yearly",
-			"then": [360,600,840]
+			"then": [240,480,720]
 		}
 	],
 	minimumCustomAmount: [
 		{
 			"if": "paymentType() == onetime",
-			"then": 360
+			"then": 150
 		},
 		{
 			"if": "paymentType() == recurring && recurringInterval() == monthly",
-			"then": 30
+			"then": 12.5
 		},
 		{
 			"if": "paymentType() == recurring && recurringInterval() == quarterly",
-			"then": 90
+			"then": 37.5
 		},
 		{
 			"if": "paymentType() == recurring && recurringInterval() == semestral",
-			"then": 180
+			"then": 75
 		},
 		{
 			"if": "paymentType() == recurring && recurringInterval() == yearly",
-			"then": 360
+			"then": 150
 		}
 	]
 });

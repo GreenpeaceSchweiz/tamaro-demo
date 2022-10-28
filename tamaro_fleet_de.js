@@ -1,4 +1,4 @@
-// RaiseNow Tamaro Widget for GPCH - Standard Donations
+// RaiseNow Tamaro Widget for GPCH - Sponsorship Fleet
 
 window.rnw.tamaro.runWidget('.rnw-widget-container', {
 	debug: false,
@@ -85,6 +85,10 @@ window.rnw.tamaro.runWidget('.rnw-widget-container', {
 		}
 	],
 	minimumCustomAmount: [
+		{
+			"if": "paymentType() == onetime",
+			"then": 360
+		},
 		{
 			"if": "paymentType() == recurring && recurringInterval() == monthly",
 			"then": 30
