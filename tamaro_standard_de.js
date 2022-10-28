@@ -86,6 +86,10 @@ window.rnw.tamaro.runWidget('.rnw-widget-container', {
 	],
 	minimumCustomAmount: [
 		{
+			"if": "paymentType() == onetime",
+			"then": 1
+		},
+		{
 			"if": "paymentType() == recurring && recurringInterval() == monthly",
 			"then": 2
 		},
