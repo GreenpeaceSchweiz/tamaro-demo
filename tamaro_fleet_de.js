@@ -1,8 +1,8 @@
-// RaiseNow Tamaro Widget for GPCH - Sponsorship Ocean
+// RaiseNow Tamaro Widget for GPCH - Standard Donations
 
 window.rnw.tamaro.runWidget('.rnw-widget-container', {
 	debug: false,
-	testMode: true,
+	testMode: false,
 	language: 'de',
 	showStoredCustomerEmailPermission: true,
 	showStoredCustomerDonationReceipt: false,
@@ -10,14 +10,14 @@ window.rnw.tamaro.runWidget('.rnw-widget-container', {
 		stored_customer_email_permission: true,
 		stored_customer_donation_receipt: true,
 		stored_sf_Contact_Source__c: 'Internet',
-		gpch_product: 'Sponsorship Ocean',
+		gpch_product: 'Sponsorship Fleet',
 		stored_sf_Opportunity_Product__c: '',
 		stored_sf_npe03__Recurring_Donation__c_Product__c: ''
 	},
 	purposes: ['p1'],
 	purposeDetails: {
 		p1: {
-			stored_campaign_id: '7013O000000hqhwQAA'
+			stored_campaign_id: 'RaiseNow'
 		}
 	},
 	translations: {
@@ -40,46 +40,66 @@ window.rnw.tamaro.runWidget('.rnw-widget-container', {
 					email_permission_info_html: "<p>Ich möchte, dass Greenpeace Schweiz mich per E-Mail über laufende Projekte informiert.</p>\n"
 				}
 			}
+		},
+		fr: {
+			purposes: {
+				p1: 'Greenpeace Schweiz'
+			},
+			blocks: {
+				payment_profile: {
+					email_permission_info_html: "<p>Ich möchte, dass Greenpeace Schweiz mich per E-Mail über laufende Projekte informiert.</p>\n"
+				}
+			}
+		},
+		it: {
+			purposes: {
+				p1: 'Greenpeace Schweiz'
+			},
+			blocks: {
+				payment_profile: {
+					email_permission_info_html: "<p>Ich möchte, dass Greenpeace Schweiz mich per E-Mail über laufende Projekte informiert.</p>\n"
+				}
+			}
 		}
 	},
 	amounts: [
 		{
 			"if": "paymentType() == onetime",
-			"then": [39,84,150,250]
+			"then": [360,450,600]
 		},
 		{
 			"if": "paymentType() == recurring && recurringInterval() == monthly",
-			"then": [7,10,20,50]
+			"then": [30,50,70]
 		},
 		{
 			"if": "paymentType() == recurring && recurringInterval() == quarterly",
-			"then": [21,30,60,150]
+			"then": [90,150,210]
 		},
 		{
 			"if": "paymentType() == recurring && recurringInterval() == semestral",
-			"then": [42,60,120,300]
+			"then": [180,300,420]
 		},
 		{
 			"if": "paymentType() == recurring && recurringInterval() == yearly",
-			"then": [84,120,240,600]
+			"then": [360,600,840]
 		}
 	],
 	minimumCustomAmount: [
 		{
 			"if": "paymentType() == recurring && recurringInterval() == monthly",
-			"then": 2
+			"then": 30
 		},
 		{
 			"if": "paymentType() == recurring && recurringInterval() == quarterly",
-			"then": 6
+			"then": 90
 		},
 		{
 			"if": "paymentType() == recurring && recurringInterval() == semestral",
-			"then": 12
+			"then": 180
 		},
 		{
 			"if": "paymentType() == recurring && recurringInterval() == yearly",
-			"then": 24
+			"then": 360
 		}
 	]
 });
