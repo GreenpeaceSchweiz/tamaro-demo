@@ -193,6 +193,12 @@
 	// beforePaymentValidateAndSend = bePaVaAnSe
 	window.rnw.tamaro.events.beforePaymentValidateAndSend.subscribe(bePaVaAnSeHandler);
 
+	jQuery(document).ready(function($)
+	{
+		// hide payment submit button
+		$('.payment-submit-block').hide();
+	});
+
 </script>
 
 </body>
