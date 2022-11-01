@@ -177,7 +177,7 @@
 		]
 	});
 
-	function bePaVaAnSeHandler(event) {
+	function beforePaymentValidateAndSendHandler(event) {
 
 		var payment_type = window.rnw.tamaro.instance.paymentForm.data.payment_type;
 
@@ -192,14 +192,13 @@
 		}
 	}
 
-	// beforePaymentValidateAndSend = bePaVaAnSe
-	window.rnw.tamaro.events.beforePaymentValidateAndSend.subscribe(bePaVaAnSeHandler);
+	window.rnw.tamaro.events.beforePaymentValidateAndSend.subscribe(beforePaymentValidateAndSendHandler);
 
-	jQuery(document).ready(function($)
-	{
-		// hide payment submit button
+	function shortenForm(event) {
 		$('.widget-block.payment-submit-block').hide();
-	});
+	}
+
+	window.rnw.tamaro.events.afterRender.subscribe(shortenForm);
 
 </script>
 
