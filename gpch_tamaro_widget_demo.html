@@ -203,26 +203,18 @@
 
 	window.rnw.tamaro.events.beforePaymentValidateAndSend.subscribe(beforePaymentValidateAndSendHandler);
 
-	function afterLoadHandler(event) {
-		console.log('afterLoad');
-	}
-
-	function afterCreateHandler(event) {
-		console.log('afterCreate');
-
-	}
-
 	function afterRenderHandler(event) {
-		console.log('afterRender');
+
+		$('.payment-submit-block').hide();
+		$('.footer-info').hide();
+
+		const nextStepButton = $.parseHTML('<div class="widget-block next-step-block"><div class="next-step"><div class="main"><button type="button" class="btn btn-block btn-primary md-ripple" onClick="nextStep()"><span class="btn-text">Next Step</span><div class="md-ripple-cont"></div></button></div></div></div>');
+		$(nextStepButton).insertAfter(".widget-block.payment-submit-block");
 	}
 
 	window.rnw.tamaro.events.afterRender.subscribe(afterRenderHandler);
-	window.rnw.tamaro.events.afterLoad.subscribe(afterLoadHandler);
-	window.rnw.tamaro.events.afterCreate.subscribe(afterCreateHandler);
 
 </script>
-
-<script src="https://tamaro.greenpeace.ch/shorten_form.js"></script>
 
 </body>
 </html>
