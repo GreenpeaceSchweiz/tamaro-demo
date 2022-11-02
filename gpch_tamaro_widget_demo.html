@@ -37,7 +37,7 @@
 			margin-top: 3.2rem;
 		}
 
-		#tamaro-widget.tamaro-widget .next-step {
+		#tamaro-widget.tamaro-widget .next-step .main button{
 			font-size: 1.125rem;
 			min-height: 4rem;
 		}
@@ -202,10 +202,10 @@
 
 	window.rnw.tamaro.events.beforePaymentValidateAndSend.subscribe(beforePaymentValidateAndSendHandler);
 
-	$( window ).on( "load", function()
-	{
+	$( window ).on( "load", function() {
+
 		// hide payment submit button
-		// $('.payment-submit-block').hide();
+		$('.payment-submit-block').hide();
 
 		// hide footer info
 		$('.footer-info').hide();
@@ -216,7 +216,15 @@
 	});
 
 	function nextStep() {
-		console.log('nextStep');
+
+		// hide payment submit button
+		$('.next-step-block').hide();
+
+		// hide payment submit button
+		$('.payment-submit-block').show();
+
+		// hide footer info
+		$('.footer-info').show();
 	}
 
 </script>
