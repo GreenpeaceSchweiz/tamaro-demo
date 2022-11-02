@@ -204,7 +204,7 @@
 
 	function afterRenderHandler(event) {
 		console.log('[afterRenderHandler]');
-		document.querySelector(".widget-block.payment-submit-block").style.display = 'none';
+		$(".widget-block.payment-submit-block").hide();
 	}
 	window.rnw.tamaro.events.afterRender.subscribe(afterRenderHandler);
 
