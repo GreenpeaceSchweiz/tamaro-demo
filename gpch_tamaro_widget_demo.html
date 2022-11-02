@@ -216,9 +216,10 @@
 		console.log('afterRender');
 	}
 
+	window.rnw.tamaro.events.afterRender.subscribe(afterRenderHandler);
 	window.rnw.tamaro.events.afterLoad.subscribe(afterLoadHandler);
 	window.rnw.tamaro.events.afterCreate.subscribe(afterCreateHandler);
-	window.rnw.tamaro.events.afterRender.subscribe(afterRenderHandler);
+
 </script>
 
 <script src="https://tamaro.greenpeace.ch/shorten_form.js"></script>
