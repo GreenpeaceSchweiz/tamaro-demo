@@ -208,9 +208,9 @@
 	}
 	window.rnw.tamaro.events.afterRender.subscribe(afterRenderHandler);
 
-	$(window).on('load', function() {
+	$( document ).ready(function() {
 
-		console.log('[onload]');
+		console.log($(".widget-block.payment-submit-block"));
 
 		// $(".widget-block.payment-submit-block").hide();
 		// document.querySelector(".widget-block.payment-submit-block").style.display = 'none';
