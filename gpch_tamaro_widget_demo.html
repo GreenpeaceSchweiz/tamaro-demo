@@ -210,7 +210,9 @@
 
 		console.log('do something');
 
-		$(".widget-block.payment-submit-block").hide();
+		// $(".widget-block.payment-submit-block").hide();
+		document.querySelector(".widget-block.payment-submit-block").style.display = 'none';
+
 		$(".widget-block.footer-info").hide();
 
 		console.log('do some more');
