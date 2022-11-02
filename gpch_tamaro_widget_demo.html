@@ -207,7 +207,7 @@
 		$(".widget-block.payment-submit-block").hide();
 		console.log($(".widget-block.payment-submit-block"));
 	}
-	window.rnw.tamaro.events.afterRender.subscribe(afterRenderHandler);
+	window.rnw.tamaro.events.fetchPaymentDataStart.subscribe(afterRenderHandler);
 
 	$( document ).ready(function() {
 
