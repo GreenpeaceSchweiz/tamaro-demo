@@ -16,7 +16,7 @@
 		.rnw-widget-container {
 			width: 100%;
 			max-width: 37.5rem;
-			/* margin: 0 auto; */
+			margin: 0 auto;
 		}
 
 		#tamaro-widget.tamaro-widget {
@@ -43,7 +43,8 @@
 		}
 	</style>
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script> -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js?ver=3.3.1"></script>
 
 </head>
 
@@ -202,40 +203,25 @@
 
 	window.rnw.tamaro.events.beforePaymentValidateAndSend.subscribe(beforePaymentValidateAndSendHandler);
 
-	$( window ).on( "load", function() {
-
-		// hide payment submit button
-		$('.payment-submit-block').hide();
-
-		// hide footer info
-		$('.footer-info').hide();
-
-		// add button
-		var nextStepButton = '<div class="widget-block next-step-block"><div class="next-step"><div class="main"><button type="button" class="btn btn-block btn-primary md-ripple" onClick="nextStep()"><span class="btn-text">Next Step</span><div class="md-ripple-cont"></div></button></div></div></div>';
-		$(nextStepButton).insertAfter('.payment-submit-block');
-	});
-
-	function nextStep() {
-
-		// hide payment submit button
-		$('.next-step-block').hide();
-
-		rnw.tamaro.instance.config.paymentWidgetBlocks = [
-			'payment_amounts_and_intervals',
-			'payment_payment_methods',
-			'payment_profile',
-			'payment_address',
-			'payment_cover_fee'
-		];
-
-		// hide payment submit button
-		$('.payment-submit-block').show();
-
-		// hide footer info
-		$('.footer-info').show();
+	function afterLoadHandler(event) {
+		console.log('afterLoad');
 	}
 
+	function afterCreateHandler(event) {
+		console.log('afterCreate');
+
+	}
+
+	function afterRenderHandler(event) {
+		console.log('afterRender');
+	}
+
+	window.rnw.tamaro.events.afterLoad.subscribe(afterLoadHandler);
+	window.rnw.tamaro.events.afterCreate.subscribe(afterCreateHandler);
+	window.rnw.tamaro.events.afterRender.subscribe(afterRenderHandler);
 </script>
+
+<script src="https://tamaro.greenpeace.ch/shorten_form.js"></script>
 
 </body>
 </html>
