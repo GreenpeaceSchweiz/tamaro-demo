@@ -220,6 +220,14 @@
 		// hide payment submit button
 		$('.next-step-block').hide();
 
+		rnw.tamaro.instance.config.paymentWidgetBlocks = [
+			'payment_amounts_and_intervals',
+			'payment_payment_methods',
+			'payment_profile',
+			'payment_address',
+			'payment_cover_fee'
+		];
+
 		// hide payment submit button
 		$('.payment-submit-block').show();
 
