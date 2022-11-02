@@ -17,7 +17,6 @@
 			width: 100%;
 			max-width: 37.5rem;
 			/* margin: 0 auto; */
-			margin: 0;
 		}
 
 		#tamaro-widget.tamaro-widget {
@@ -32,6 +31,10 @@
 
 		#tamaro-widget.tamaro-widget .gpch_product {
 			margin-bottom: 24px;
+		}
+
+		.widget-block.next_step-block {
+			margin-top: 3.2rem;
 		}
 
 	</style>
@@ -195,11 +198,6 @@
 
 	window.rnw.tamaro.events.beforePaymentValidateAndSend.subscribe(beforePaymentValidateAndSendHandler);
 
-</script>
-
-<div class="widget-block payment-submit-block" style="display: none;"><div class="payment-submit"><div class="main"><button type="button" class="btn btn-block btn-primary md-ripple" onClick="()"><span class="btn-text">Next Step</span><div class="md-ripple-cont"></div></button></div></div></div>
-
-<script>
 	$( window ).on( "load", function()
 	{
 		// hide payment submit button
@@ -208,7 +206,14 @@
 		// hide footer info
 		$('.footer-info').hide();
 
+		// add button
+		var nextStepButton = '<div class="widget-block next_step-block-block"><div class="next-step"><div class="main"><button type="button" class="btn btn-block btn-primary md-ripple" onClick="nextStep()"><span class="btn-text">Next Step</span><div class="md-ripple-cont"></div></button></div></div></div>';
+		$(nextStepButton).insertAfter('.payment-submit-block');
 	});
+
+	function nextStep() {
+		console.log('nextStep');
+	}
 </script>
 
 </body>
