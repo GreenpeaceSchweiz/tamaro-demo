@@ -203,19 +203,20 @@
 
 	window.rnw.tamaro.events.beforePaymentValidateAndSend.subscribe(beforePaymentValidateAndSendHandler);
 
-	// function afterRenderHandler(event) {}
-	// window.rnw.tamaro.events.afterRender.subscribe(afterRenderHandler);
+	function afterRenderHandler(event) {
+		console.log('[afterRenderHandler]');
+		document.querySelector(".widget-block.payment-submit-block").style.display = 'none';
+	}
+	window.rnw.tamaro.events.afterRender.subscribe(afterRenderHandler);
 
 	$(window).on('load', function() {
 
-		console.log('do something');
+		console.log('[onload]');
 
 		// $(".widget-block.payment-submit-block").hide();
 		document.querySelector(".widget-block.payment-submit-block").style.display = 'none';
 
 		$(".widget-block.footer-info").hide();
-
-		console.log('do some more');
 
 		const nextStepButton = $.parseHTML('<div class="widget-block next-step-block"><div class="next-step"><div class="main"><button type="button" class="btn btn-block btn-primary md-ripple" onClick="nextStep()"><span class="btn-text">Next Step</span><div class="md-ripple-cont"></div></button></div></div></div>');
 		$(nextStepButton).insertAfter(".widget-block.payment-submit-block");
