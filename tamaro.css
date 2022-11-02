@@ -7,7 +7,7 @@
 .rnw-widget-container {
 	width: 100%;
 	max-width: 37.5rem;
-	margin: 0 auto;
+	/* margin: 0 auto; */
 }
 
 #tamaro-widget.tamaro-widget {
@@ -22,4 +22,13 @@ body.tamaro-widget-overlay-inner.tamaro-widget-overlay-shown #tamaro-widget.tama
 
 #tamaro-widget.tamaro-widget .gpch_product {
 	margin-bottom: 24px;
+}
+
+#tamaro-widget.tamaro-widget .widget-block.next-step-block {
+	margin-top: 3.2rem;
+}
+
+#tamaro-widget.tamaro-widget .next-step .main button{
+	font-size: 1.125rem;
+	min-height: 4rem;
 }
