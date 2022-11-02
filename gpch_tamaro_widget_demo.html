@@ -194,12 +194,14 @@
 
 	window.rnw.tamaro.events.beforePaymentValidateAndSend.subscribe(beforePaymentValidateAndSendHandler);
 
-	function shortenForm(event) {
-		$('.widget-block.payment-submit-block').hide();
-	}
+</script>
 
-	window.rnw.tamaro.events.afterRender.subscribe(shortenForm);
-
+<script>
+	jQuery(document).ready(function($)
+	{
+		// hide payment submit button
+		$('.payment-submit-block').hide();
+	});
 </script>
 
 </body>
