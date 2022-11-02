@@ -16,7 +16,8 @@
 		.rnw-widget-container {
 			width: 100%;
 			max-width: 37.5rem;
-			margin: 0 auto;
+			/* margin: 0 auto; */
+			margin: 0;
 		}
 
 		#tamaro-widget.tamaro-widget {
@@ -47,7 +48,7 @@
 
 <script>
 	window.rnw.tamaro.runWidget('.rnw-widget-container', {
-		debug: true,
+		debug: false,
 		testMode: true,
 		language: 'de',
 		layout: 'step',
@@ -196,11 +197,17 @@
 
 </script>
 
+<div class="widget-block payment-submit-block" style="display: none;"><div class="payment-submit"><div class="main"><button type="button" class="btn btn-block btn-primary md-ripple" onClick="()"><span class="btn-text">Next Step</span><div class="md-ripple-cont"></div></button></div></div></div>
+
 <script>
 	$( window ).on( "load", function()
 	{
 		// hide payment submit button
 		$('.payment-submit-block').hide();
+
+		// hide footer info
+		$('.footer-info').hide();
+
 	});
 </script>
 
