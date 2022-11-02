@@ -204,12 +204,14 @@
 	window.rnw.tamaro.events.beforePaymentValidateAndSend.subscribe(beforePaymentValidateAndSendHandler);
 
 	function afterRenderHandler(event) {
+		window.onload = function() {
 
-		$('.payment-submit-block').hide();
-		$('.footer-info').hide();
+			$('.payment-submit-block').hide();
+			$('.footer-info').hide();
 
-		const nextStepButton = $.parseHTML('<div class="widget-block next-step-block"><div class="next-step"><div class="main"><button type="button" class="btn btn-block btn-primary md-ripple" onClick="nextStep()"><span class="btn-text">Next Step</span><div class="md-ripple-cont"></div></button></div></div></div>');
-		$(nextStepButton).insertAfter(".widget-block.payment-submit-block");
+			const nextStepButton = $.parseHTML('<div class="widget-block next-step-block"><div class="next-step"><div class="main"><button type="button" class="btn btn-block btn-primary md-ripple" onClick="nextStep()"><span class="btn-text">Next Step</span><div class="md-ripple-cont"></div></button></div></div></div>');
+			$(nextStepButton).insertAfter(".widget-block.payment-submit-block");
+		}
 	}
 
 	window.rnw.tamaro.events.afterRender.subscribe(afterRenderHandler);
