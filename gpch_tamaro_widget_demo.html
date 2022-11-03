@@ -37,9 +37,17 @@
 			margin-top: 3.2rem;
 		}
 
-		#tamaro-widget.tamaro-widget .next-step .main button{
+		#tamaro-widget.tamaro-widget .next-step .main button {
 			font-size: 1.125rem;
 			min-height: 4rem;
+		}
+
+		.payment-submit-block {
+			display: none;
+		}
+
+		.footer-info {
+			display: none;
 		}
 	</style>
 
@@ -203,25 +211,11 @@
 	window.rnw.tamaro.events.beforePaymentValidateAndSend.subscribe(beforePaymentValidateAndSendHandler);
 
 	function afterRenderHandler(event) {
-		console.log('[afterRenderHandler]');
-		$(".widget-block.payment-submit-block").hide();
-		console.log($(".widget-block.payment-submit-block"));
-	}
-	window.rnw.tamaro.events.fetchPaymentDataStart.subscribe(afterRenderHandler);
-
-	$( document ).ready(function() {
-
-		console.log($(".widget-block.payment-submit-block"));
-
-		// $(".widget-block.payment-submit-block").hide();
-		// document.querySelector(".widget-block.payment-submit-block").style.display = 'none';
-		document.getElementsByClassName("payment-submit-block")[0].style.display = 'none';
-
-		$(".widget-block.footer-info").hide();
-
 		const nextStepButton = $.parseHTML('<div class="widget-block next-step-block"><div class="next-step"><div class="main"><button type="button" class="btn btn-block btn-primary md-ripple" onClick="nextStep()"><span class="btn-text">Next Step</span><div class="md-ripple-cont"></div></button></div></div></div>');
-		$(nextStepButton).insertAfter(".widget-block.payment-submit-block");
-	});
+		$(nextStepButton).insertAfter(".payment-amounts-and-intervals-block");
+	}
+
+	window.rnw.tamaro.events.afterRender.subscribe(afterRenderHandler);
 
 	function nextStep() {
 
