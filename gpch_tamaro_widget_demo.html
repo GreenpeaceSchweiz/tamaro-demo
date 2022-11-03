@@ -42,17 +42,10 @@
 			min-height: 4rem;
 		}
 
-		.payment-submit-block {
-			display: none;
-		}
-
-		.footer-info {
-			display: none;
-		}
 	</style>
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js?ver=3.3.1"></script> -->
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script> -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js?ver=3.3.1" id="jquery-js"></script>
 
 </head>
 
@@ -60,12 +53,12 @@
 
 <div class="rnw-widget-container"></div>
 
-<script src="https://tamaro.raisenow.com/greenpeace-demo/latest/widget.js"></script>
+<script src="https://tamaro.raisenow.com/greenpeace-ch-default/latest/widget.js"></script>
 
 <script>
 	window.rnw.tamaro.runWidget('.rnw-widget-container', {
 		debug: false,
-		testMode: false,
+		testMode: true,
 		language: 'de',
 		showStoredCustomerEmailPermission: true,
 		showStoredCustomerDonationReceipt: false,
@@ -88,40 +81,13 @@
 		purposes: ['p1'],
 		purposeDetails: {
 			p1: {
-				stored_campaign_id: '7013O000000hqhwQAA'
+				stored_campaign_id: 'RaiseNow'
 			}
 		},
-		slots: {
-			purposes_start: [{
-				component: "field",
-				type: "select",
-				name: "gpch_product",
-				label: "payment_form.gpch_product",
-				options: [
-					{value: 'Standard Donation', label: 'payment_form.gpch_products.standard_donation'},
-					{value: 'Sponsorship Agriculture', label: 'payment_form.gpch_products.sponsorship_agriculture'},
-					{value: 'Sponsorship Climate', label: 'payment_form.gpch_products.sponsorship_climate'},
-					{value: 'Sponsorship Fleet', label: 'payment_form.gpch_products.sponsorship_fleet'},
-					{value: 'Sponsorship Forest', label: 'payment_form.gpch_products.sponsorship_forest'},
-					{value: 'Sponsorship Ocean', label: 'payment_form.gpch_products.sponsorship_ocean'}
-				],
-			}
-		]},
 		translations: {
 			en: {
 				purposes: {
 					p1: 'Greenpeace Switzerland'
-				},
-				payment_form: {
-					gpch_product: 'Salesforce Product',
-					gpch_products: {
-						standard_donation: 'Standard Donation',
-						sponsorship_agriculture: 'Sponsorship Agriculture',
-						sponsorship_climate: 'Sponsorship Climate',
-						sponsorship_fleet: 'Sponsorship Fleet',
-						sponsorship_forest: 'Sponsorship Forest',
-						sponsorship_ocean: 'Sponsorship Ocean'
-					}
 				},
 				blocks: {
 					payment_profile: {
@@ -133,20 +99,29 @@
 				purposes: {
 					p1: 'Greenpeace Schweiz'
 				},
-				payment_form: {
-					gpch_product: 'Salesforce Produkt',
-					gpch_products: {
-						standard_donation: 'Standard Spende',
-						sponsorship_agriculture: 'Patenschaft Landwirtschaft',
-						sponsorship_climate: 'Patenschaft Klima',
-						sponsorship_fleet: 'Patenschaft Flotte',
-						sponsorship_forest: 'Patenschaft Urwälder',
-						sponsorship_ocean: 'Patenschaft Meer'
-					}
-				},
 				blocks: {
 					payment_profile: {
 						email_permission_info_html: "<p>Ich möchte, dass Greenpeace Schweiz mich per E-Mail über laufende Projekte informiert.</p>\n"
+					}
+				}
+			},
+			fr: {
+				purposes: {
+					p1: 'Greenpeace Suisse'
+				},
+				blocks: {
+					payment_profile: {
+						email_permission_info_html: "<p>Je veux que Greenpeace Suisse m'informe par e-mail des projets en cours.</p>\n"
+					}
+				}
+			},
+			it: {
+				purposes: {
+					p1: 'Greenpeace Svizzera'
+				},
+				blocks: {
+					payment_profile: {
+						email_permission_info_html: "<p>Desidero che Greenpeace Svizzera mi informi via e-mail sui progetti in corso.</p>\n"
 					}
 				}
 			}
@@ -174,6 +149,10 @@
 			}
 		],
 		minimumCustomAmount: [
+			{
+				"if": "paymentType() == onetime",
+				"then": 1
+			},
 			{
 				"if": "paymentType() == recurring && recurringInterval() == monthly",
 				"then": 2
@@ -210,13 +189,26 @@
 
 	window.rnw.tamaro.events.beforePaymentValidateAndSend.subscribe(beforePaymentValidateAndSendHandler);
 
+	// feature to shorten the form
+
 	function afterRenderHandler(event) {
+		console.log("[afterRenderHandler] -> [element with class .payment-submit-block]");
 		console.log($('.payment-submit-block'));
-		const nextStepButton = $.parseHTML('<div class="widget-block next-step-block"><div class="next-step"><div class="main"><button type="button" class="btn btn-block btn-primary md-ripple" onClick="nextStep()"><span class="btn-text">Next Step</span><div class="md-ripple-cont"></div></button></div></div></div>');
-		$(nextStepButton).insertAfter(".payment-amounts-and-intervals-block");
 	}
 
 	window.rnw.tamaro.events.afterRender.subscribe(afterRenderHandler);
+
+	$(window).on('load', function() {
+
+		console.log("[window.onload] -> [element with class .payment-submit-block]");
+		console.log($('.payment-submit-block'));
+
+		$('.payment-submit-block').hide();
+		$('.footer-info').hide();
+
+		const nextStepButton = '$.parseHTML(<div class="widget-block next-step-block"><div class="next-step"><div class="main"><button type="button" class="btn btn-block btn-primary md-ripple" onClick="nextStep()"><span class="btn-text">Next Step</span><div class="md-ripple-cont"></div></button></div></div></div>');
+		$(nextStepButton).insertBefore('.payment-submit-block');
+	});
 
 	function nextStep() {
 
