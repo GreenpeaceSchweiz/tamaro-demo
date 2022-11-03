@@ -208,7 +208,7 @@
 		$('.payment-submit-block').hide();
 		$('.footer-info').hide();
 
-		const nextStepButton = '$.parseHTML(<div class="widget-block next-step-block"><div class="next-step"><div class="main"><button type="button" class="btn btn-block btn-primary md-ripple" onClick="nextStep()"><span class="btn-text">Next Step</span><div class="md-ripple-cont"></div></button></div></div></div>');
+		const nextStepButton = $.parseHTML('<div class="widget-block next-step-block"><div class="next-step"><div class="main"><button type="button" class="btn btn-block btn-primary md-ripple" onClick="nextStep()"><span class="btn-text">Next Step</span><div class="md-ripple-cont"></div></button></div></div></div>');
 		$(nextStepButton).insertBefore('.payment-submit-block');
 	});
 
