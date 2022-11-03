@@ -211,6 +211,7 @@
 	window.rnw.tamaro.events.beforePaymentValidateAndSend.subscribe(beforePaymentValidateAndSendHandler);
 
 	function afterRenderHandler(event) {
+		console.log($('.payment-submit-block'));
 		const nextStepButton = $.parseHTML('<div class="widget-block next-step-block"><div class="next-step"><div class="main"><button type="button" class="btn btn-block btn-primary md-ripple" onClick="nextStep()"><span class="btn-text">Next Step</span><div class="md-ripple-cont"></div></button></div></div></div>');
 		$(nextStepButton).insertAfter(".payment-amounts-and-intervals-block");
 	}
