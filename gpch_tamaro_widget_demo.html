@@ -64,6 +64,8 @@
 		defaultRecurringInterval: 'monthly',
 		showStoredCustomerEmailPermission: true,
 		showStoredCustomerDonationReceipt: false,
+		show_submit_button: false,
+		show_footer: false,
 		paymentFormPrefill: {
 			stored_customer_email_permission: true,
 			stored_customer_donation_receipt: true,
@@ -86,6 +88,14 @@
 				stored_campaign_id: 'RaiseNow'
 			}
 		},
+		slots: {
+			blocks_end: [{
+				component: "field",
+				type: "text",
+				name: "gpch_next_step_button_position",
+				label: "payment_form.gpch_next_step_button_position",
+				placeholder: "payment_form.gpch_next_step_button_position"
+			}],
 		translations: {
 			en: {
 				purposes: {
@@ -198,18 +208,20 @@
 		console.log($('.payment-submit-block'));
 	}
 
-	window.rnw.tamaro.events.afterRender.subscribe(afterRenderHandler);
+	// window.rnw.tamaro.events.afterRender.subscribe(afterRenderHandler);
 
 	$(window).on('load', function() {
 
-		console.log("[window.onload] -> [element with class .payment-submit-block]");
-		console.log($('.payment-submit-block'));
+		// console.log("[window.onload] -> [element with class .payment-submit-block]");
+		// console.log($('.payment-submit-block'));
 
-		$('.payment-submit-block').hide();
-		$('.footer-info').hide();
+		// $('.payment-submit-block').hide();
+		// $('.footer-info').hide();
 
 		const nextStepButton = $.parseHTML('<div class="widget-block next-step-block"><div class="next-step"><div class="main"><button type="button" class="btn btn-block btn-primary md-ripple" onClick="nextStep()"><span class="btn-text">Next Step</span><div class="md-ripple-cont"></div></button></div></div></div>');
-		$(nextStepButton).insertBefore('.payment-submit-block');
+		// $(nextStepButton).insertBefore('.payment-submit-block');
+
+
 	});
 
 	function nextStep() {
