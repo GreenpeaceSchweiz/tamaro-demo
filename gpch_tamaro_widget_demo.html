@@ -57,7 +57,7 @@
 
 <script>
 	window.rnw.tamaro.runWidget('.rnw-widget-container', {
-		debug: false,
+		debug: true,
 		testMode: true,
 		language: 'de',
 		defaultPaymentType: 'onetime',
@@ -72,8 +72,7 @@
 			stored_sf_Contact_Source__c: 'Internet',
 			gpch_product: 'Standard Donation',
 			stored_sf_Opportunity_Product__c: '',
-			stored_sf_npe03__Recurring_Donation__c_Product__c: '',
-			gpch_next_step_button_position: null
+			stored_sf_npe03__Recurring_Donation__c_Product__c: ''
 		},
 		paymentWidgetBlocks: [
 			// 'payment_purposes',
@@ -82,7 +81,7 @@
 			// 'payment_profile',
 			// 'payment_address',
 			// 'payment_cover_fee'
-			'slot_gpch_next_button'
+			'slot_gpch_next_step_button'
 		],
 		purposes: ['p1'],
 		purposeDetails: {
@@ -91,13 +90,13 @@
 			}
 		},
 		slots: {
-			slot_gpch_next_button: [{
+			slot_gpch_next_step_button: [{
 				component: "block",
 				children: [{
 					component: "block_content",
 					children: [{
 						component: "content",
-						text_html: "<button type=\"button\" class=\"btn btn-block btn-primary md-ripple\" onClick=\"next()\"><span class=\"btn-text\">Next Step</span><div class=\"md-ripple-cont\"></div></button>"
+						text_html: "gpch_next_step_button"
 					}]
 				}]
 			}]
@@ -110,6 +109,9 @@
 				blocks: {
 					payment_profile: {
 						email_permission_info_html: "<p>I would like Greenpeace Switzerland to inform me by e-mail about ongoing projects.</p>\n"
+					},
+					gpch_next_step_button: {
+						text_html: '<button type="button" class="btn btn-block btn-primary md-ripple" onClick="next()"><span class="btn-text">Next Step</span><div class="md-ripple-cont"></div></button>'
 					}
 				}
 			},
