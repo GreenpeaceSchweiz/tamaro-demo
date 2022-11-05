@@ -33,11 +33,11 @@
 			margin-bottom: 24px;
 		}
 
-		#tamaro-widget.tamaro-widget .widget-block.next-step-block {
-			margin-top: 3.2rem;
+		#tamaro-widget.tamaro-widget .widget-custom-content {
+			margin-top: 3.2rem !important;
 		}
 
-		#tamaro-widget.tamaro-widget .next-step .main button {
+		#tamaro-widget.tamaro-widget .widget-block.slot_gpch_next_step_button button {
 			font-size: 1.125rem;
 			min-height: 4rem;
 		}
@@ -45,7 +45,7 @@
 	</style>
 
 	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script> -->
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js?ver=3.3.1" id="jquery-js"></script>
+	<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js?ver=3.3.1" id="jquery-js"></script> -->
 
 </head>
 
@@ -57,8 +57,8 @@
 
 <script>
 	window.rnw.tamaro.runWidget('.rnw-widget-container', {
-		debug: true,
-		testMode: true,
+		debug: false,
+		testMode: false,
 		language: 'de',
 		defaultPaymentType: 'onetime',
 		defaultRecurringInterval: 'monthly',
@@ -75,12 +75,7 @@
 			stored_sf_npe03__Recurring_Donation__c_Product__c: ''
 		},
 		paymentWidgetBlocks: [
-			// 'payment_purposes',
 			'payment_amounts_and_intervals',
-			// 'payment_payment_methods',
-			// 'payment_profile',
-			// 'payment_address',
-			// 'payment_cover_fee'
 			'slot_gpch_next_step_button'
 		],
 		purposes: ['p1'],
@@ -109,11 +104,9 @@
 				blocks: {
 					payment_profile: {
 						email_permission_info_html: "<p>I would like Greenpeace Switzerland to inform me by e-mail about ongoing projects.</p>\n"
-					},
-					slot_gpch_next_step_button: {
-						gpch_next_step_button: "<p>Test</p>" //<button type="button" class="btn btn-block btn-primary md-ripple" onClick="next()"><span class="btn-text">Next Step</span><div class="md-ripple-cont"></div></button>
 					}
-				}
+				},
+				gpch_next_step_button: '<button type="button" class="btn btn-block btn-primary" onClick="nextStep()"><span class="btn-text">Next Step</span></button>'
 			},
 			de: {
 				purposes: {
@@ -209,23 +202,7 @@
 
 	window.rnw.tamaro.events.beforePaymentValidateAndSend.subscribe(beforePaymentValidateAndSendHandler);
 
-	// feature to shorten the form
-
-	function afterRenderHandler(event) {
-		console.log("[afterRenderHandler] -> [element with class .payment-submit-block]");
-		console.log($('.payment-submit-block'));
-	}
-
-	// window.rnw.tamaro.events.afterRender.subscribe(afterRenderHandler);
-
-	$(window).on('load', function() {
-		// console.log("[window.onload] -> [element with class .payment-submit-block]");
-		// console.log($('.payment-submit-block'));
-	});
-
-	function next() {
-
-		// $('.next-step-block').hide();
+	function nextStep() {
 
 		rnw.tamaro.instance.config.paymentWidgetBlocks = [
 			'payment_amounts_and_intervals',
@@ -235,7 +212,8 @@
 			'payment_cover_fee'
 		];
 
-		// show
+		rnw.tamaro.instance.config.showSubmitButton = true;
+		rnw.tamaro.instance.config.showFooter = true;
 	}
 
 </script>
