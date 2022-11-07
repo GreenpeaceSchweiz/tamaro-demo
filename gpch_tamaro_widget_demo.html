@@ -57,8 +57,8 @@
 
 <script>
 	window.rnw.tamaro.runWidget('.rnw-widget-container', {
-		debug: false,
-		testMode: false,
+		debug: true,
+		testMode: true,
 		language: 'de',
 		defaultPaymentType: 'onetime',
 		defaultRecurringInterval: 'monthly',
@@ -185,7 +185,9 @@
 		]
 	});
 
-	function beforePaymentValidateAndSendHandler(event) {
+	var gpchTamaro = gpchTamaro || {};
+
+	gpchTamaro.callbackBeforePaymentValidateAndSend = function (event) {
 
 		var payment_type = window.rnw.tamaro.instance.paymentForm.data.payment_type;
 
@@ -200,9 +202,7 @@
 		}
 	}
 
-	window.rnw.tamaro.events.beforePaymentValidateAndSend.subscribe(beforePaymentValidateAndSendHandler);
-
-	var gpchTamaro = gpchTamaro || {};
+	window.rnw.tamaro.events.beforePaymentValidateAndSend.subscribe(gpchTamaro.callbackBeforePaymentValidateAndSend);
 
 	gpchTamaro.nextStep = function() {
 
