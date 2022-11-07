@@ -4,8 +4,12 @@ window.rnw.tamaro.runWidget('.rnw-widget-container', {
 	debug: false,
 	testMode: false,
 	language: 'fr',
+	defaultPaymentType: 'onetime',
+	defaultRecurringInterval: 'monthly',
 	showStoredCustomerEmailPermission: true,
 	showStoredCustomerDonationReceipt: false,
+	show_submit_button: false,
+	show_footer: false,
 	paymentFormPrefill: {
 		stored_customer_email_permission: true,
 		stored_customer_donation_receipt: true,
@@ -14,11 +18,27 @@ window.rnw.tamaro.runWidget('.rnw-widget-container', {
 		stored_sf_Opportunity_Product__c: '',
 		stored_sf_npe03__Recurring_Donation__c_Product__c: ''
 	},
+	paymentWidgetBlocks: [
+		'payment_amounts_and_intervals',
+		'slot_gpch_next_step_button'
+	],
 	purposes: ['p1'],
 	purposeDetails: {
 		p1: {
-			stored_campaign_id: 'RaiseNow'
+			stored_campaign_id: '701090000005aTcAAI'
 		}
+	},
+	slots: {
+		slot_gpch_next_step_button: [{
+			component: "block",
+			children: [{
+				component: "block_content",
+				children: [{
+					component: "content",
+					text_html: "gpch_next_step_button"
+				}]
+			}]
+		}]
 	},
 	translations: {
 		en: {
@@ -29,7 +49,8 @@ window.rnw.tamaro.runWidget('.rnw-widget-container', {
 				payment_profile: {
 					email_permission_info_html: "<p>I would like Greenpeace Switzerland to inform me by e-mail about ongoing projects.</p>\n"
 				}
-			}
+			},
+			gpch_next_step_button: '<button type="button" class="btn btn-block btn-primary" onClick="gpchTamaro.nextStep()"><span class="btn-text">Next Step</span></button>'
 		},
 		de: {
 			purposes: {
@@ -108,7 +129,9 @@ window.rnw.tamaro.runWidget('.rnw-widget-container', {
 	]
 });
 
-function bePaVaAnSeHandler(event) {
+var gpchTamaro = gpchTamaro || {};
+
+gpchTamaro.callbackBeforePaymentValidateAndSend = function (event) {
 
 	var payment_type = window.rnw.tamaro.instance.paymentForm.data.payment_type;
 
@@ -123,5 +146,18 @@ function bePaVaAnSeHandler(event) {
 	}
 }
 
-// beforePaymentValidateAndSend = bePaVaAnSe
-window.rnw.tamaro.events.beforePaymentValidateAndSend.subscribe(bePaVaAnSeHandler);
+window.rnw.tamaro.events.beforePaymentValidateAndSend.subscribe(gpchTamaro.callbackBeforePaymentValidateAndSend);
+
+gpchTamaro.nextStep = function() {
+
+	rnw.tamaro.instance.config.paymentWidgetBlocks = [
+		'payment_amounts_and_intervals',
+		'payment_payment_methods',
+		'payment_profile',
+		'payment_address',
+		'payment_cover_fee'
+	];
+
+	rnw.tamaro.instance.config.showSubmitButton = true;
+	rnw.tamaro.instance.config.showFooter = true;
+}
