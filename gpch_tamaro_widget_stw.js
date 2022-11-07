@@ -2,7 +2,6 @@ window.rnw.tamaro.runWidget('.rnw-widget-container', {
 	testMode: false,
 	debug: false,
 	language: 'de',
-	// paymentMethods: ['cc', 'pfc', 'pp'],
 	paymentMethods: ['eca', 'vis', 'pfc', 'pp'],
 	paymentTypes: ['recurring'],
 	recurringIntervals: ['monthly'],
@@ -51,26 +50,24 @@ window.rnw.tamaro.runWidget('.rnw-widget-container', {
 		}
 	},
 	paymentFormPrefill: {
-		stored_piece_id: 180,
-		// stored_sxt_product_id: 1037,
+		stored_piece_id: 0,
 		stored_sf_Contact_Source__c: 'Internet',
 		gpch_product: 'Standard Donation',
 		stored_sf_Opportunity_Product__c: '',
 		stored_sf_npe03__Recurring_Donation__c_Product__c: '',
 		stored_customer_email_permission: true,
-		stored_customer_donation_receipt: true,
+		stored_customer_donation_receipt: true
 	},
 	purposeDetails: {
 		p1: {
-			stored_campaign_id: 'RaiseNow',
-			// stored_campaign_id: 85074981,
-			// stored_campaign_subid: 29744
+			stored_campaign_id: '701090000005aTqAAI'
 		}
 	}
 });
 
+var gpchTamaro = gpchTamaro || {};
 
-function bePaVaAnSeHandler(event) {
+gpchTamaro.callbackBeforePaymentValidateAndSend = function (event) {
 
 	var payment_type = window.rnw.tamaro.instance.paymentForm.data.payment_type;
 
@@ -85,7 +82,7 @@ function bePaVaAnSeHandler(event) {
 	}
 }
 
-window.rnw.tamaro.events.beforePaymentValidateAndSend.subscribe(bePaVaAnSeHandler);
+window.rnw.tamaro.events.beforePaymentValidateAndSend.subscribe(gpchTamaro.callbackBeforePaymentValidateAndSend);
 
 // on finish
 window['rnw']['tamaro'].events['paymentComplete'].subscribe(function(event) {
