@@ -20,15 +20,11 @@ body.tamaro-widget-overlay-inner.tamaro-widget-overlay-shown #tamaro-widget.tama
 	margin: -2rem;
 }
 
-#tamaro-widget.tamaro-widget .gpch_product {
-	margin-bottom: 24px;
+#tamaro-widget.tamaro-widget .widget-custom-content {
+	margin-top: 3.2rem !important;
 }
 
-#tamaro-widget.tamaro-widget .widget-block.next-step-block {
-	margin-top: 3.2rem;
-}
-
-#tamaro-widget.tamaro-widget .next-step .main button {
+#tamaro-widget.tamaro-widget .widget-block.slot_gpch_next_step_button button {
 	font-size: 1.125rem;
 	min-height: 4rem;
 }
