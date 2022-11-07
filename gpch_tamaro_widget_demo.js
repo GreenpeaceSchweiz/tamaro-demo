@@ -1,3 +1,5 @@
+// RaiseNow Tamaro Widget for GPCH - Demo
+
 window.rnw.tamaro.runWidget('.rnw-widget-container', {
 	debug: true,
 	testMode: true,
