@@ -106,7 +106,7 @@
 						email_permission_info_html: "<p>I would like Greenpeace Switzerland to inform me by e-mail about ongoing projects.</p>\n"
 					}
 				},
-				gpch_next_step_button: '<button type="button" class="btn btn-block btn-primary" onClick="nextStep()"><span class="btn-text">Next Step</span></button>'
+				gpch_next_step_button: '<button type="button" class="btn btn-block btn-primary" onClick="gpchTamaro.nextStep()"><span class="btn-text">Next Step</span></button>'
 			},
 			de: {
 				purposes: {
@@ -202,7 +202,9 @@
 
 	window.rnw.tamaro.events.beforePaymentValidateAndSend.subscribe(beforePaymentValidateAndSendHandler);
 
-	function nextStep() {
+	var gpchTamaro = gpchTamaro || {};
+
+	gpchTamaro.nextStep = function() {
 
 		rnw.tamaro.instance.config.paymentWidgetBlocks = [
 			'payment_amounts_and_intervals',
